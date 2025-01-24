@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://purl.org/nen/spec-doco"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     ontologyIRI="http://purl.org/nen/spec-doco">
+    <Prefix name="" IRI="http://purl.org/nen/spec-doco/"/>
+    <Prefix name="dc" IRI="http://purl.org/dc/elements/1.1/"/>
+    <Prefix name="po" IRI="http://purl.org/spar/po"/>
+    <Prefix name="sh" IRI="http://www.w3.org/ns/shacl#"/>
+    <Prefix name="c4o" IRI="http://purl.org/spar/c4o/"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="doco" IRI="http://purl.org/spar/doco/"/>
+    <Prefix name="frbr" IRI="http://purl.org/vocab/frbr/core#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="skos" IRI="http://www.w3.org/2008/05/skos#"/>
+    <Prefix name="spec" IRI="http://purl.org/nen/spec/"/>
+    <Prefix name="nen2660" IRI="https://w3id.org/nen2660/def#"/>
+    <Prefix name="spec-cat" IRI="http://purl.org/nen/spec-cat/"/>
+    <Prefix name="spec-bind" IRI="http://purl.org/nen/spec-bind/"/>
+    <Import>http://purl.org/nen/spec/</Import>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This ontology is available at https://specified.ai/ontologies/spec-doco/, and uses the namespace prefix spec-doco.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The Specifications Ontology provides a structured vocabulary of technical specifications. This allows technical specifications to be described in RDF. The Specification DOCO References is an modulair add-on for specifying the classes for references for requirements&apos;.
+        **URL:** https://specified.ai/ontologies/spec-cat/
+        **Creators**: Robert Matousek
+		**Contributors**: Rik (CROW), Redmer Kronemeijer
+        **License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+        **Website:** https://specified.ai
+        **Cite as:** Matousek, R. Kronemeijer, Rik (CROW). (2023). Specification DOCO References.</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:title"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Specification DOCO References</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+        <Literal datatypeIRI="&rdf;PlainLiteral">2023-11-01</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
+        <IRI>https://rix.fyi/</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:description"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The Specifications Ontology provides a structured vocabulary of technical specifications. This allows technical specifications to be described in RDF. The Specification DOCO References is an modulair add-on for specifying the classes for references for requirements&apos;: 
+                    Meyer, B., Bruel, JM., Ebersold, S., Galinier, F., Naumchev, A. (2019). Towards an Anatomy of Software Requirements. In: Mazzara, M., Bruel, JM., Meyer, B., Petrenko, A. (eds) Software Technology: Methods and Tools. TOOLS 2019. Lecture Notes in Computer Science(), vol 11771. Springer, Cham. https://doi.org/10.1007/978-3-030-29852-4_2</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
+        <Literal datatypeIRI="&xsd;string">Robert Matousek</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:rights"/>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/).</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:contributor"/>
+        <IRI>https://rdmr.eu/</IRI>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="&xsd;string">1.0</Literal>
+    </Annotation>
+    <Declaration>
+        <Datatype IRI="/ContentMathML"/>
+    </Declaration>
+    <Declaration>
+        <Datatype IRI="/Latex"/>
+    </Declaration>
+    <Declaration>
+        <Datatype IRI="/StrictContentMathML"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="/ContentMathML"/>
+        <Class abbreviatedIRI="rdfs:Literal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/Latex"/>
+        <Class abbreviatedIRI="rdfs:Literal"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="/StrictContentMathML"/>
+        <Class IRI="/ContentMathML"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:PropertyShape"/>
+        <NamedIndividual IRI="/FormulaContent"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:NodeShape"/>
+        <NamedIndividual IRI="/FormulaShape"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:PropertyShape"/>
+        <NamedIndividual IRI="/ListContent"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:NodeShape"/>
+        <NamedIndividual IRI="/ListShape"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:PropertyShape"/>
+        <NamedIndividual IRI="/SentenceValue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:PropertyShape"/>
+        <NamedIndividual IRI="/TableContent"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:NodeShape"/>
+        <NamedIndividual IRI="/TableShape"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:PropertyShape"/>
+        <NamedIndividual IRI="/TextValue"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:NodeShape"/>
+        <NamedIndividual abbreviatedIRI="doco:Sentence"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="sh:NodeShape"/>
+        <NamedIndividual abbreviatedIRI="doco:TextChunk"/>
+    </ClassAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/ContentMathML</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Content MathML Formula</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/ContentMathML</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Content MathML Formule</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:path"/>
+        <IRI>/FormulaContent</IRI>
+        <AbbreviatedIRI>c4o:hasContent</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:xone"/>
+        <IRI>/FormulaContent</IRI>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid0"/>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:property"/>
+        <IRI>/FormulaShape</IRI>
+        <IRI>/FormulaContent</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:targetClass"/>
+        <IRI>/FormulaShape</IRI>
+        <AbbreviatedIRI>doco:Formula</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Latex</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Latex Formula</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/Latex</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Latex Formule</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:path"/>
+        <IRI>/ListContent</IRI>
+        <AbbreviatedIRI>c4o:hasContent</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:xone"/>
+        <IRI>/ListContent</IRI>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid6"/>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:property"/>
+        <IRI>/ListShape</IRI>
+        <IRI>/ListContent</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:targetClass"/>
+        <IRI>/ListShape</IRI>
+        <AbbreviatedIRI>doco:List</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:datatype"/>
+        <IRI>/SentenceValue</IRI>
+        <AbbreviatedIRI>xsd:string</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:path"/>
+        <IRI>/SentenceValue</IRI>
+        <AbbreviatedIRI>rdf:value</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/StrictContentMathML</IRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Strict MathML Formula</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>/StrictContentMathML</IRI>
+        <Literal xml:lang="nl" datatypeIRI="&rdf;PlainLiteral">Strict MathML Formule</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:path"/>
+        <IRI>/TableContent</IRI>
+        <AbbreviatedIRI>c4o:hasContent</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:xone"/>
+        <IRI>/TableContent</IRI>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid10"/>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:property"/>
+        <IRI>/TableShape</IRI>
+        <IRI>/TableContent</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:targetClass"/>
+        <IRI>/TableShape</IRI>
+        <AbbreviatedIRI>doco:Table</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:datatype"/>
+        <IRI>/TextValue</IRI>
+        <AbbreviatedIRI>xsd:string</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:path"/>
+        <IRI>/TextValue</IRI>
+        <AbbreviatedIRI>rdf:value</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:property"/>
+        <AbbreviatedIRI>doco:Sentence</AbbreviatedIRI>
+        <IRI>/SentenceValue</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:property"/>
+        <AbbreviatedIRI>doco:TextChunk</AbbreviatedIRI>
+        <IRI>/TextValue</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:datatype"/>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid1"/>
+        <IRI>/Latex</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:datatype"/>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid11"/>
+        <AbbreviatedIRI>rdf:HTML</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:datatype"/>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid13"/>
+        <AbbreviatedIRI>rdf:MARKDOWN</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:datatype"/>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid3"/>
+        <IRI>/StrictContentMathML</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:datatype"/>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid5"/>
+        <IRI>/ContentMathML</IRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:datatype"/>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid7"/>
+        <AbbreviatedIRI>rdf:HTML</AbbreviatedIRI>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="sh:datatype"/>
+        <AnonymousIndividual nodeID="_:file:/C:/Users/lenovo/Documents/Projects/nen/spec/docs/current/genid9"/>
+        <AbbreviatedIRI>rdf:MARKDOWN</AbbreviatedIRI>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:dc11="http://purl.org/dc/elements/1.1/"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:ns0="http://www.w3.org/ns/shacl#"
+         xmlns:ns1="http://purl.org/vocab/frbr/core#">
+
+  <owl:Ontology rdf:about="http://purl.org/nen/spec">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.1</owl:versionInfo>
+    <dc11:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Robert Matousek</dc11:creator>
+    <dc11:contributor rdf:resource="https://rdmr.eu/"/>
+    <dc11:contributor rdf:resource="https://rix.fyi/"/>
+    <dc11:date>2024-03-14</dc11:date>
+    <dc11:title xml:lang="en">Specifications Ontology</dc11:title>
+    <dc11:description xml:lang="en">The Specifications Ontology is a formal and structured representation of knowledge that defines concepts, relationships, and properties of requirements. It serves as a shared vocabulary or framework for describing and organizing requirements in a way that computers can understand and process, also known as machine-readable requirements.</dc11:description>
+    <rdfs:comment xml:lang="en">The Specifications Ontology is a formal and structured representation of knowledge that defines concepts, relationships, and properties of requirements. It serves as a shared vocabulary or framework for describing and organizing requirements in a way that computers can understand and process, also known as machine-readable requirements.
+        **URL:** http://purl.org/nen/spec
+        **Creators**: Robert Matousek, Rik (CROW), Redmer Kronemeijer, Herman Drenth, Jos Hebing
+        **License:** [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/legalcode)
+        **Website:** https://specified.ai
+        **Cite as:** Matousek, R. Kronemeijer, Rik (CROW), R. Hebing, J. Drenth, H. (2023). The Specifications Ontology.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This ontology is available at http://purl.org/nen/spec/, and uses the namespace prefix spec.</rdfs:comment>
+    <dc11:rights xml:lang="en">This work is distributed under a Creative Commons Attribution License (http://creativecommons.org/licenses/by/3.0/).</dc11:rights>
+    <owl:imports rdf:resource="http://purl.org/spar/doco/"/>
+    <owl:imports rdf:resource="http://purl.org/spar/po"/>
+    <owl:imports rdf:resource="http://purl.org/vocab/frbr/core#"/>
+  </owl:Ontology>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/Statement">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Clause</rdfs:label>
+    <rdfs:label xml:lang="nl">Clausule</rdfs:label>
+    <rdfs:comment xml:lang="en">Human-readable expression of a property. Not all statements have to be expressed in natural language: a statement could be a UML diagram specifying a system property, a mathematical formula describing a constraint property.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">Voor mensen leesbare expressie van een eigenschap. Niet alle statements hoeven in natuurlijke taal te worden uitgedrukt: een statement kan een UML-diagram zijn dat een systeemeigenschap specificeert, een wiskundige formule die een beperkingseigenschap beschrijft.</rdfs:comment>
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/StatementText">
+        <rdfs:comment xml:lang="en">This corrensponds somewhat to the 'type'. In the context of this ontology natural language expressions are to be expected. In the case of a diagram or figure the class shouldn't be doco:TextChunk but another corresponding class from DOCO.</rdfs:comment>
+        <ns0:name xml:lang="en">StatementText</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Statement and its Text</ns0:description>
+        <ns0:path rdf:resource="http://purl.org/vocab/frbr/core#embodiment"/>
+        <ns0:class rdf:resource="http://purl.org/spar/doco/TextChunk"/>
+        <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/StatementReference">
+        <rdfs:comment xml:lang="en">A statement (piece of text) can refer to another piece of text. Either implicit or explicit.</rdfs:comment>
+        <rdfs:comment xml:lang="nl">Een statement (stuk tekst) kan verwijzen naar een ander stuk tekst. Impliciet of expliciet.</rdfs:comment>
+        <ns0:name xml:lang="en">StatementReference</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and its Reference</ns0:description>
+        <ns0:path rdf:resource="http://purl.org/nen/spec/refersTo"/>
+        <ns0:class rdf:resource="http://purl.org/nen/spec/Statement"/>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/Requirement">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:seeAlso rdf:resource="https://w3id.org/nen2660/def#Requirement"/>
+    <rdfs:label xml:lang="en">Requirement</rdfs:label>
+    <rdfs:label xml:lang="nl">Eis</rdfs:label>
+    <rdfs:comment xml:lang="en">A requirement is a specification of a property of a project, system or environment.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">Een eis is een specificatie van een eigenschap van een project, systeem of omgeving.</rdfs:comment>
+    <ns1:embodiment rdf:resource="http://purl.org/spar/doco/Sentence"/>
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementText">
+        <rdfs:comment xml:lang="en">The sentence of a requirement is an optional and virtual representation in natural language which can be derived from the resources related to the requirement.</rdfs:comment>
+        <rdfs:comment xml:lang="nl">De zin van een vereiste is een optionele en virtuele weergave in natuurlijke taal die kan worden afgeleid uit de bronnen die verband houden met de vereiste.</rdfs:comment>
+        <ns0:name xml:lang="en">RequirementText</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and its Text</ns0:description>
+        <ns0:path rdf:resource="http://purl.org/vocab/frbr/core#embodiment"/>
+        <ns0:class rdf:resource="http://purl.org/spar/doco/Sentence"/>
+        <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementBindingness">
+        <ns0:name xml:lang="en">RequirementBindingness</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and its Bindingness</ns0:description>
+        <ns0:path>
+          <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/hasBindingness">
+            <rdfs:label xml:lang="en">has bindingness</rdfs:label>
+            <rdfs:label xml:lang="nl">heeft bindendheid</rdfs:label>
+            <rdfs:range rdf:resource="http://purl.org/nen/spec/Bindingness"/>
+          </owl:ObjectProperty>
+        </ns0:path>
+
+        <ns0:class rdf:resource="http://purl.org/nen/spec/Bindingness"/>
+        <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementPerformance">
+        <ns0:name xml:lang="en">RequirementPerformance</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and its Performance</ns0:description>
+        <ns0:path>
+          <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/hasPerformance">
+            <rdfs:label xml:lang="en">has performance</rdfs:label>
+            <rdfs:label xml:lang="nl">heeft prestatie</rdfs:label>
+            <rdfs:range rdf:resource="http://purl.org/nen/spec/Performance"/>
+          </owl:ObjectProperty>
+        </ns0:path>
+
+        <ns0:class rdf:resource="http://purl.org/nen/spec/Performance"/>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementCondition">
+        <ns0:name xml:lang="en">RequirementCondition</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and its Condition</ns0:description>
+        <ns0:path>
+          <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/hasCondition">
+            <rdfs:label xml:lang="en">has condition</rdfs:label>
+            <rdfs:label xml:lang="nl">heeft conditie</rdfs:label>
+            <rdfs:range rdf:resource="http://purl.org/nen/spec/Condition"/>
+          </owl:ObjectProperty>
+        </ns0:path>
+
+        <ns0:class rdf:resource="http://purl.org/nen/spec/Condition"/>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementMainVerb">
+        <ns0:name xml:lang="en">RequirementMainVerb</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and its MainVerb</ns0:description>
+        <ns0:path>
+          <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/hasMainVerb">
+            <rdfs:label xml:lang="en">has main verb</rdfs:label>
+            <rdfs:label xml:lang="nl">heeft hoofd werkwoord</rdfs:label>
+            <rdfs:range rdf:resource="http://purl.org/nen/spec/MainVerb"/>
+          </owl:ObjectProperty>
+        </ns0:path>
+
+        <ns0:class rdf:resource="http://purl.org/nen/spec/MainVerb"/>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementMargin">
+        <ns0:name xml:lang="en">RequirementMargin</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and its Margin</ns0:description>
+        <ns0:path>
+          <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/hasMargin">
+            <rdfs:label xml:lang="en">has margin</rdfs:label>
+            <rdfs:label xml:lang="nl">heeft foutmarge</rdfs:label>
+            <rdfs:range rdf:resource="http://purl.org/nen/spec/Margin"/>
+          </owl:ObjectProperty>
+        </ns0:path>
+
+        <ns0:class rdf:resource="http://purl.org/nen/spec/Margin"/>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementSystem">
+        <ns0:name xml:lang="en">RequirementSystem</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and performance providing System</ns0:description>
+        <ns0:path rdf:resource="http://purl.org/nen/spec/hasTopic"/>
+        <ns0:class rdf:resource="http://purl.org/nen/spec/Topic"/>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementCategory">
+        <ns0:name xml:lang="en">RequirementCategory</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and its Category</ns0:description>
+        <ns0:path>
+          <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/hasCategory">
+            <rdfs:label xml:lang="en">belongs to category</rdfs:label>
+            <rdfs:label xml:lang="nl">behoort tot categorie</rdfs:label>
+            <rdfs:range rdf:resource="http://purl.org/nen/spec/Category"/>
+          </owl:ObjectProperty>
+        </ns0:path>
+
+        <ns0:class rdf:resource="http://purl.org/nen/spec/Category"/>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementReference">
+        <ns0:name xml:lang="en">RequirementReference</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and its Rereference</ns0:description>
+        <ns0:path rdf:resource="http://purl.org/nen/spec/refersTo"/>
+        <ns0:or>
+          <rdf:Description>
+            <rdf:first>
+              <rdf:Description>
+                <ns0:class rdf:resource="http://purl.org/spar/doco/Figure"/>
+              </rdf:Description>
+            </rdf:first>
+
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first>
+                  <rdf:Description>
+                    <ns0:class rdf:resource="http://purl.org/spar/doco/Table"/>
+                  </rdf:Description>
+                </rdf:first>
+
+                <rdf:rest>
+                  <rdf:Description>
+                    <rdf:first>
+                      <rdf:Description>
+                        <ns0:class rdf:resource="http://purl.org/spar/doco/List"/>
+                      </rdf:Description>
+                    </rdf:first>
+
+                    <rdf:rest>
+                      <rdf:Description>
+                        <rdf:first>
+                          <rdf:Description>
+                            <ns0:class rdf:resource="http://purl.org/spar/doco/Formula"/>
+                          </rdf:Description>
+                        </rdf:first>
+
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                      </rdf:Description>
+                    </rdf:rest>
+
+                  </rdf:Description>
+                </rdf:rest>
+
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </ns0:or>
+
+      </ns0:PropertyShape>
+    </ns0:property>
+
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/Aspect">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Aspect</rdfs:label>
+    <rdfs:label xml:lang="nl">Aspect</rdfs:label>
+    <rdfs:comment xml:lang="en">Qualitative or quantitative characteristic of a system.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">Kwalitatief of kwantitatief kenmerk van een systeem.</rdfs:comment>
+    <ns0:property rdf:resource="http://purl.org/nen/spec/AspectValue"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/AspectUoM">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Aspect unit of measure</rdfs:label>
+    <rdfs:label xml:lang="nl">Aspect meeteenheid</rdfs:label>
+    <rdfs:comment xml:lang="en">A unit of measure, or unit, is a particular quantity value that has been chosen as a scale for measuring other quantities the same kind.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">Een meeteenheid, of eenheid, is een bepaalde waarde van een hoeveelheid die is gekozen als schaal voor het meten van andere hoeveelheden van dezelfde soort.</rdfs:comment>
+    <rdfs:seeAlso rdf:resource="https://qudt.org/schema/qudt/Unit"/>
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/AspectUoMValue">
+        <ns0:name xml:lang="en">AspectUoMValue</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between an AspectUoM and its Value</ns0:description>
+        <ns0:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+        <ns0:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/AspectValue">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#PropertyShape"/>
+    <rdfs:label xml:lang="en">Value of aspect</rdfs:label>
+    <rdfs:label xml:lang="nl">Waarde van aspect</rdfs:label>
+    <rdfs:comment xml:lang="en">Actual value of an aspect</rdfs:comment>
+    <rdfs:comment xml:lang="nl">Daadwerkelijke waarde van een aspect.</rdfs:comment>
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/AspectValueValue">
+        <ns0:name xml:lang="en">AspectValueValue</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between an AspectValue and its (actual) Value</ns0:description>
+        <ns0:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+        <ns0:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:name xml:lang="en">AspectValue</ns0:name>
+    <ns0:description xml:lang="en">Validation shape for the relation between an Aspect and its Value</ns0:description>
+    <ns0:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+    <ns0:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/Container">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+    <rdfs:label xml:lang="en">Unordered (requirement) container</rdfs:label>
+    <rdfs:label xml:lang="nl">Ongesorteerde (eis) container</rdfs:label>
+    <rdfs:comment xml:lang="en">The class of unordered (requirement) containers.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">De klasse van ongesorteerde (eis) containers.</rdfs:comment>
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementContainer">
+        <ns0:name xml:lang="en">RequirementContainer</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Container and its members</ns0:description>
+        <ns0:path>
+          <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#member">
+            <rdfs:label xml:lang="en">member</rdfs:label>
+            <rdfs:label xml:lang="nl">lid</rdfs:label>
+          </rdf:Property>
+        </ns0:path>
+
+        <ns0:or>
+          <rdf:Description>
+            <rdf:first>
+              <rdf:Description>
+                <ns0:class rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag"/>
+              </rdf:Description>
+            </rdf:first>
+
+            <rdf:rest>
+              <rdf:Description>
+                <rdf:first>
+                  <rdf:Description>
+                    <ns0:class rdf:resource="http://purl.org/nen/spec/Requirement"/>
+                  </rdf:Description>
+                </rdf:first>
+
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+              </rdf:Description>
+            </rdf:rest>
+
+          </rdf:Description>
+        </ns0:or>
+
+      </ns0:PropertyShape>
+    </ns0:property>
+
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/Bindingness">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Bindingness</rdfs:label>
+    <rdfs:label xml:lang="nl">Bindenheid</rdfs:label>
+    <rdfs:comment xml:lang="en">The quality of being binding.</rdfs:comment>
+    <rdfs:comment xml:lang="de">Die Qualität des Bindens.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">De mate waarin iets vereist is.</rdfs:comment>
+    <rdfs:seealso rdf:resource="https://www.rfc-editor.org/rfc/rfc2119"/>
+    <rdfs:seealso rdf:resource="https://github.com/Stichting-CROW/respec/wiki/RFC-2119-Nederlands"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/Category">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Category</rdfs:label>
+    <rdfs:label xml:lang="nl">Categorie</rdfs:label>
+    <rdfs:comment xml:lang="en">The category a requirement belongs to.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">De categorie waartoe een eis behoort.</rdfs:comment>
+    <rdfs:seealso rdf:resource="https://smart-researchteam.github.io/publication/dblp-conftools-0001-begn-19/"/>
+    <rdfs:seealso rdf:resource="https://link.springer.com/chapter/10.1007/978-3-030-29852-4_2"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/Condition">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Condition</rdfs:label>
+    <rdfs:label xml:lang="nl">Conditie</rdfs:label>
+    <rdfs:comment xml:lang="en">The conditions during which the action takes place or to initiate the performance.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">De omstandigheden waarin de actie plaatsvindt of om de uitvoering te initiëren.</rdfs:comment>
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/ConditionValue">
+        <ns0:name xml:lang="en">ConditionValue</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Condition and its Value</ns0:description>
+        <ns0:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+        <ns0:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property rdf:resource="http://purl.org/nen/spec/ThingAspect"/>
+    <ns0:property rdf:resource="http://purl.org/nen/spec/ThingAspectUoM"/>
+    <ns0:property rdf:resource="http://purl.org/nen/spec/ThingAspectValue"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/MainVerb">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Main verb</rdfs:label>
+    <rdfs:label xml:lang="nl">Hoofd werkwoord</rdfs:label>
+    <rdfs:comment xml:lang="en">The action, occurrence, or a state of being.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">De actie, gebeurtenis of een staat van zijn.</rdfs:comment>
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/MainVerbValue">
+        <ns0:name xml:lang="en">MainVerbValue</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a MainVerb and its Value</ns0:description>
+        <ns0:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+        <ns0:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/Margin">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Margin of error</rdfs:label>
+    <rdfs:label xml:lang="nl">Foutmarge</rdfs:label>
+    <rdfs:comment xml:lang="en">Tolerance or limitations on the required performance.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">Tolerantie of beperkingen op de vereiste prestaties.</rdfs:comment>
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/MarginValue">
+        <ns0:name xml:lang="en">ConditionValue</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Margin and its Value</ns0:description>
+        <ns0:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+        <ns0:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property rdf:resource="http://purl.org/nen/spec/ThingAspect"/>
+    <ns0:property rdf:resource="http://purl.org/nen/spec/ThingAspectUoM"/>
+    <ns0:property rdf:resource="http://purl.org/nen/spec/ThingAspectValue"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/Performance">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:label xml:lang="en">Performance</rdfs:label>
+    <rdfs:label xml:lang="nl">Prestatie</rdfs:label>
+    <rdfs:comment xml:lang="en">The measurable performance that is required or constraint of the action.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">De meetbare prestatie die vereist is of de beperking van de actie.</rdfs:comment>
+    <ns0:property>
+      <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/PerformanceValue">
+        <ns0:name xml:lang="en">PerformanceValue</ns0:name>
+        <ns0:description xml:lang="en">Validation shape for the relation between a Performance and its Value</ns0:description>
+        <ns0:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+        <ns0:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+      </ns0:PropertyShape>
+    </ns0:property>
+
+    <ns0:property rdf:resource="http://purl.org/nen/spec/ThingAspect"/>
+    <ns0:property rdf:resource="http://purl.org/nen/spec/ThingAspectUoM"/>
+    <ns0:property rdf:resource="http://purl.org/nen/spec/ThingAspectValue"/>
+  </rdfs:Class>
+
+  <rdfs:Class rdf:about="http://purl.org/nen/spec/System">
+    <rdf:type rdf:resource="http://www.w3.org/ns/shacl#NodeShape"/>
+    <rdfs:subClassOf rdf:resource="http://purl.org/nen/spec/Topic"/>
+    <rdfs:label xml:lang="en">System</rdfs:label>
+    <rdfs:label xml:lang="nl">Systeem</rdfs:label>
+    <rdfs:comment xml:lang="en">That which delivers the required performance.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">Hetgeen dat de vereiste prestatie levert.</rdfs:comment>
+    <owl:equivalentClass rdf:resource="https://w3id.org/nen2660/def#TopConcept"/>
+  </rdfs:Class>
+
+  <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/hasAspect">
+    <rdfs:label xml:lang="en">has aspect</rdfs:label>
+    <rdfs:label xml:lang="nl">heeft aspect</rdfs:label>
+    <rdfs:range rdf:resource="http://purl.org/nen/spec/Aspect"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/hasAspectUoM">
+    <rdfs:label xml:lang="en">has aspect unit of measure</rdfs:label>
+    <rdfs:label xml:lang="nl">heeft aspect meeteenheid</rdfs:label>
+    <rdfs:range rdf:resource="http://purl.org/nen/spec/AspectUoM"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/hasAspectValue">
+    <rdfs:label xml:lang="en">has aspect value</rdfs:label>
+    <rdfs:label xml:lang="nl">heeft aspect waarde</rdfs:label>
+    <rdfs:range rdf:resource="http://purl.org/nen/spec/AspectValue"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/OR">
+    <rdfs:label xml:lang="en">union of requirements, e.g. A or B is required</rdfs:label>
+    <rdfs:comment xml:lang="en">If 2 or more spec:Requirement come from 1 spec:Statement, 'AND' is implicit. Only when there is an 'or' in the spec:Statement should the OR operator be used.</rdfs:comment>
+    <rdfs:comment xml:lang="nl">Als 2 of meer spec:Requirement uit 1 spec:Statement komen, is 'AND' impliciet. Alleen als er een 'or' in de spec:Statement staat, moet de OR-operator worden gebruikt.</rdfs:comment>
+    <rdfs:domain rdf:resource="http://purl.org/nen/spec/Requirement"/>
+    <rdfs:range rdf:resource="http://purl.org/nen/spec/Requirement"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/performanceProvider">
+    <rdfs:label xml:lang="en">has performance provider</rdfs:label>
+    <rdfs:label xml:lang="nl">heeft performance provider</rdfs:label>
+    <rdfs:range rdf:resource="http://purl.org/nen/spec/System"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/subject"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/isDerivedFrom">
+    <rdfs:label xml:lang="en">is derived from</rdfs:label>
+    <rdfs:label xml:lang="nl">is afgeleid van</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/source"/>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="http://purl.org/nen/spec/refersTo">
+    <rdfs:label xml:lang="en">refers to</rdfs:label>
+    <rdfs:label xml:lang="nl">verwijst naar</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/references"/>
+  </owl:ObjectProperty>
+
+  <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/RequirementStatement">
+    <ns0:name xml:lang="en">RequirementStatement</ns0:name>
+    <ns0:description xml:lang="en">Validation shape for the relation between a Requirement and a Statement</ns0:description>
+    <ns0:path rdf:resource="http://purl.org/nen/spec/isDerivedFrom"/>
+    <ns0:class rdf:resource="http://purl.org/nen/spec/Statement"/>
+  </ns0:PropertyShape>
+
+  <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/orStatement">
+    <ns0:name xml:lang="en">orStatement</ns0:name>
+    <ns0:description xml:lang="en">Validation shape for the OR relation between two or more Requiremnts</ns0:description>
+    <ns0:path rdf:resource="http://purl.org/nen/spec/OR"/>
+    <ns0:class rdf:resource="http://purl.org/nen/spec/Requirement"/>
+  </ns0:PropertyShape>
+
+  <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/SystemValue">
+    <ns0:name xml:lang="en">SystemValue</ns0:name>
+    <ns0:description xml:lang="en">Validation shape for the relation between a System and its Value</ns0:description>
+    <ns0:path rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#value"/>
+    <ns0:datatype rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+  </ns0:PropertyShape>
+
+  <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/ThingAspect">
+    <ns0:name xml:lang="en">ThingAspect</ns0:name>
+    <ns0:description xml:lang="en">Validation shape for the relation between someting and its aspect</ns0:description>
+    <ns0:path rdf:resource="http://purl.org/nen/spec/hasAspect"/>
+    <ns0:class rdf:resource="http://purl.org/nen/spec/Aspect"/>
+    <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+  </ns0:PropertyShape>
+
+  <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/ThingAspectUoM">
+    <ns0:name xml:lang="en">ThingAspectUoM</ns0:name>
+    <ns0:description xml:lang="en">Validation shape for the relation between someting and its aspect unit of measure</ns0:description>
+    <ns0:path rdf:resource="http://purl.org/nen/spec/hasAspectUoM"/>
+    <ns0:class rdf:resource="http://purl.org/nen/spec/AspectUoM"/>
+    <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+  </ns0:PropertyShape>
+
+  <ns0:PropertyShape rdf:about="http://purl.org/nen/spec/ThingAspectValue">
+    <ns0:name xml:lang="en">ThingAspectValue</ns0:name>
+    <ns0:description xml:lang="en">Validation shape for the relation between a someting and its aspect value</ns0:description>
+    <ns0:path rdf:resource="http://purl.org/nen/spec/hasAspectValue"/>
+    <ns0:class rdf:resource="http://purl.org/nen/spec/AspectValue"/>
+    <ns0:maxCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</ns0:maxCount>
+  </ns0:PropertyShape>
+
+</rdf:RDF>
