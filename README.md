@@ -6,7 +6,7 @@ SPEC aims to extend the Semantic Publishing and Referencing Ontologies ([SPAR](h
 
 **URI**: http://purl.org/nen/spec
 
-**Documentation**: https://data.nen.nl/spec/docs/
+**Documentation**: https://docs.crow.nl/spec-ontology
 
 **Contributors**: [Robert Matousek](https://nen.nl), [Rik](https://crow.nl), [Redmer Kronemeijer](https://crow.nl), [Herman Drenth](https://ketenstandaard.nl), [Jos Hebing](https://ketenstandaard.nl)
 
