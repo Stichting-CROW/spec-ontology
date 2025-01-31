@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Specifications Ontology</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>    
+	<link rel="stylesheet" href="../css/style.css">
+    <link
+  href="https://cdn.jsdelivr.net/npm/@triply/yasgui@v4/build/yasgui.min.css"
+  rel="stylesheet"
+  type="text/css"
+/>
+    <script src="https://cdn.jsdelivr.net/npm/@triply/yasgui@v4/build/yasgui.min.js"></script>
+</head>
+
+<body>
+<div id="yasgui"></div>
+<script>
+  const yasgui = new Yasgui(document.getElementById("yasgui"), {
+    requestConfig: {
+      endpoint: "https://hub.laces.tech/crow/spec-ontology/p/spec-all/sparql",
+      method: "GET"
+    }
+  });
+  const tab = yasgui.getTab();
+  tab.setQuery(`
+SELECT
+  ?subj ?pred ?obj
+WHERE {
+  ?subj ?pred ?obj .
+}
+LIMIT 50
+`);
+  const yasqe = yasgui.getTab().yasqe;
+  yasqe.addPrefixes({
+    "spec":"https://w3id.org/spec-ontology/spec/",
+    "spec-cat":"https://w3id.org/spec-ontology/cat/",
+    "spec-bind":"https://w3id.org/spec-ontology/bind/",
+    "spec-doco":"https://w3id.org/spec-ontology/doco/",        
+    "owl":"http://www.w3.org/2002/07/owl#",
+    "nen2660":"https://w3id.org/nen2660/def#",
+    "dc":"http://purl.org/dc/elements/1.1/",
+    "rdf":"http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs":"http://www.w3.org/2000/01/rdf-schema#",
+    "sh":"http://www.w3.org/ns/shacl#",
+    "skos":"http://www.w3.org/2004/02/skos/core#",
+    "time":"http://www.w3.org/2006/time#",
+    "xsd":"http://www.w3.org/2001/XMLSchema#",
+    "doco": "http://purl.org/spar/doco/",
+    "po": "http://purl.org/spar/po",
+    "frbr": "http://purl.org/vocab/frbr/core#",
+    "c4o": "http://purl.org/spar/c4o/",
+  });
+  yasqe.collapsePrefixes(true);
+
+</script>
+</body>
